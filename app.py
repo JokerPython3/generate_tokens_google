@@ -201,6 +201,9 @@ class S1:
 from flask import Flask,jsonify
 
 app = Flask(__name__)
+import os
+
+
 
 
 @app.route('/get_tokens')
@@ -209,5 +212,7 @@ def index():
     return jsonify({"Def":"JokerPython3","tokens":z})
 
 if __name__ == '__main__':
-  app.run(host='0.0.0.0', port=5000)
+    port = int(os.environ.get("PORT", 10000))  
+    app.run(debug=True, host='0.0.0.0', port=port)
+  
 #S1/حلمي قسمبلاه
